@@ -1,0 +1,15 @@
+flowchart LR
+    A["Gmail Trigger<br/>Receive email and download attachments"] --> B{"Attachment exists?"}
+    B -->|"Yes"| C["Split Out<br/>Separate binary attachments"]
+    B -->|"No"| D["No Operation<br/>Do nothing"]
+    C --> E["Loop Over Items<br/>Process each attachment"]
+    E --> F["Analyze document<br/>Google Gemini document extraction"]
+    F --> G["Edit Fields<br/>Normalize extracted JSON"]
+    G --> H{"Document type is corporativo?"}
+    H -->|"Yes"| I["Merge<br/>Combine extracted data and binary"]
+    H -->|"No"| J["Merge1<br/>Combine extracted data and binary"]
+    I --> K["Upload file<br/>Google Drive"]
+    J --> L["Upload file1<br/>Google Drive"]
+    K --> M["Append row in sheet<br/>Google Sheets"]
+    L --> M
+    M --> E

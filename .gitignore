@@ -1,0 +1,32 @@
+# Local environment files
+.env
+.env.*
+!.env.example
+
+# n8n local/runtime data
+.n8n/
+n8n-data/
+executions/
+credentials*.json
+*.credentials.json
+*.execution.json
+
+# Unsanitized workflow exports
+workflow/*.raw.json
+workflow/*.private.json
+workflow/*.local.json
+workflow/*credentials*.json
+
+# Logs
+*.log
+logs/
+
+# OS and editors
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Temporary files
+tmp/
+temp/
